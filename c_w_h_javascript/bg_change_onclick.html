@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>color_changing_options</title>
+      <style>
+        body{
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+        }
+        div{
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+      </style>
+</head>
+<body>
+    <div id="divID">
+        <h1>you have to change your background colour......</h1>
+        <button id="text" onclick="textcolor()">change text colour</button><br>
+        <button id="background" onclick="backgroundcolor()">change background color</button>
+      </div>
+
+      <script>  
+      const tx = document.body.querySelector("#text");
+      const h = document.body.querySelector("h1");
+      const bg = document.body.querySelector("#background");
+        function  randomcolor() {
+            return Math.floor(Math.random() * 255);
+        }
+        function textcolor() {
+        tx.addEventListener('click', () => {
+          h.style.color = 'rgba('
+                + randomcolor() + ',' + randomcolor()
+                + ',' + randomcolor() + '\)';
+        })
+      }
+      function backgroundcolor() {
+       bg.addEventListener('click',() => {
+            document.body.style.backgroundColor = 'rgba('
+                + randomcolor() + ',' + randomcolor()
+                + ',' + randomcolor() + '\)';
+        })
+      }
+        
+      </script>
+</body>
+
+</html>

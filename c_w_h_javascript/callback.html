@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>chack in the console</p>
+    <script>
+        function ls(src,callback){
+            var script = document.createElement("script");
+            script. src =src;
+            script.onerror=function(){
+                console.log("you script is not "+ src);
+            }
+            script.onload=function(){
+                console.log("you script is "+ src);
+                callback();
+            }
+            document.body.appendChild(script);
+        }
+        function hello(){
+            console.log("there is a one script is loaded ");
+        }
+    
+        ls("https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js", hello);
+        
+    </script>
+</body>
+</html>

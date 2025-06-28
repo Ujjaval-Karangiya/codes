@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Study Material | Darshan University</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  background: #222;
+  color: white;
+  padding: 10px 20px;
+}
+
+.logo {
+  height: 40px;
+  margin-right: auto;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav li {
+  cursor: pointer;
+}
+
+.hero {
+  background: #d92332;
+  color: white;
+  padding: 20px;
+}
+
+.form-section {
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.form-group {
+  background: #f5f5f5;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.form-group label,
+.form-group select,
+.form-group button {
+  display: block;
+  margin: 10px 0;
+  width: 100%;
+}
+
+button {
+  background-color: #d92332;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="https://darshan.ac.in/Content/media/du-logo.svg" alt="Darshan University Logo" class="logo" />
+    <nav>
+      <ul>
+        <li>About</li>
+        <li>Admissions</li>
+        <li>Programs</li>
+        <li>Campus</li>
+        <li>Student Corner</li>
+        <li>Placements</li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>rahul</h1>
+    <p>Home > study</p>
+  </section>
+
+  <section class="form-section">
+    <div class="form-group">
+      <label for="program">Program</label>
+      <select id="program">
+        <option value="">Select Program</option>
+        <option value="btech">B.Tech</option>
+        <option value="mtech">M.Tech</option>
+      </select>
+
+      <label for="specialization">Specialization</label>
+      <select id="specialization">
+        <option value="">Select Specialization</option>
+        <option value="cs">Computer Science</option>
+        <option value="me">Mechanical Engineering</option>
+      </select>
+
+      <button onclick="viewMaterial()">View</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>© Darshan University. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function viewMaterial() {
+  const program = document.getElementById("program").value;
+  const specialization = document.getElementById("specialization").value;
+
+  if (!program || !specialization) {
+    alert("Please select both Program and Specialization.");
+  } else {
+    alert(`Fetching study material for ${program} - ${specialization}`);
+    // Simulate redirection or material loading
+  }
+}
+
+  </script>
+</body>
+</html>

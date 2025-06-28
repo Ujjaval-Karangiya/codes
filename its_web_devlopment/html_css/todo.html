@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Daily Task List</title>
+  <style>
+      body {
+            background-color: black;
+            color: rgb(30, 0, 255);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            height: 100vh;
+           
+        }
+
+        h1 {
+            text-align: center;
+            font-family: cursive;
+            color: aqua;
+        }
+        button{
+            padding: 6px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-top-right-radius: 10%;
+            border-bottom-right-radius: 10%;
+        
+        }
+        body div{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            width: 30rem;
+            text-align: center;
+        }
+
+        #taskInput {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-top-left-radius: 10%;
+            border-bottom-left-radius: 10%;
+        }
+
+      
+     
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    #task-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    #task-list li {
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #f5f5f5;
+      border-radius: 5px;
+    }
+
+    #task-list li.completed {
+      text-decoration: line-through;
+      background-color: #e8e8e8;
+    }
+
+    #task-input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    #add-task-button {
+      padding: 6px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    ul{
+        height: 900px;
+        width: 1600px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        overflow: auto;
+
+    }
+    @media (max-width:900px) {
+        ul{
+            flex-wrap: nowrap;
+            display: none;
+        }
+    }
+    
+    ul li{
+        text-decoration: none;
+        color: black;
+        margin-right: 1rem;
+        padding: 10px;
+        height: 8rem;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        width: 30%;
+        overflow: auto;
+        flex-wrap: wrap;
+    }
+    ul li button{
+        padding: 5px 10px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 2rem;
+        text-align: center;
+        width: 4rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Daily Task List</h1>
+<div>
+    
+  <input type="text" id="task-input" placeholder="Enter a task...">
+  <button id="add-task-button">Add Task</button>
+
+</div>
+  <ul id="task-list">
+  </ul>
+
+  <script>
+    // Get elements
+    const taskInput = document.getElementById('task-input');
+    const addTaskButton = document.getElementById('add-task-button');
+    const taskList = document.getElementById('task-list');
+
+    // Initialize tasks array
+    let tasks = [];
+
+    // Function to display tasks in the list
+    function displayTasks() {
+      taskList.innerHTML = '';
+      tasks.forEach((task, index) => {
+        const li = document.createElement('li');
+        li.textContent = task.text;
+        if (task.completed) {
+          li.classList.add('completed');
+        }
+
+        // Create delete button
+        const deleteButton = document.
+        createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.addEventListener('click', () => {
+          deleteTask(index);
+        });
+        li.appendChild(deleteButton);
+
+        // Create update button
+        const updateButton = document.createElement('button');
+        updateButton.textContent = 'Update';
+        updateButton.addEventListener('click', () => {
+          updateTask(index);
+        });
+        li.appendChild(updateButton);
+
+        taskList.appendChild(li);
+      });
+    }
+
+    // Function to add a new task
+    function addTask() {
+      const taskText = taskInput.value.trim();
+      if (taskText) {
+        tasks.push({ text: taskText, completed: false });
+        taskInput.value = '';
+        displayTasks();
+      }
+    }
+
+    // Function to delete a task
+    function deleteTask(index) {
+      tasks.splice(index, 1);
+      displayTasks();
+    }
+
+    // Function to update a task
+    function updateTask(index) {
+      const updatedText = prompt('Enter the updated task:');
+      if (updatedText) {
+        tasks[index].text = updatedText;
+        displayTasks();
+      }
+    }
+
+    // Add event listener to add task button
+    addTaskButton.addEventListener('click', addTask);
+  </script>
+</body>
+</html>

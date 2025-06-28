@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>bulb</title>
+    <style>
+      * {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+      }
+
+      .bulbcontainer {
+        border: 10px solid rgb(255, 5, 5);
+        border-radius: 50%;
+        height: 500px;
+        width: 500px;
+        animation: rgb 10s ease-in 0s infinite normal;
+      }
+      
+      .bulb {
+        background-color: yellow;
+        border: 2px;
+        border-radius: 50%;
+        height: 500px;
+        width: 500px;
+        animation: rgb 10s ease-in 0s infinite normal;
+      }
+
+      @keyframes rgb {
+        0% {
+          background-color: rgb(76, 0, 255);
+        }
+
+        25% {
+          background-color: green;
+        }
+
+        60% {
+          background-color: orange;
+        }
+
+        100% {
+          background-color: purple;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="bulb" class="bulb bulbcontainer"></div>
+
+    <script>
+      setInterval(async function () {
+        document.querySelector("#bulb").classList.toggle("bulb");
+      }, 500);
+    </script>
+  </body>
+</html>

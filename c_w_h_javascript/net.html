@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix India – Watch TV Shows Online, Watch Movies Online</title>
+    <style>
+        /* @import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700;800;900&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap'); */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: black;
+}
+.main img{
+  /* height: 25px; */
+  z-index: 10;
+  position: relative;
+}
+.main {
+  background-image: url("assets/img/front\ video\ image.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: max(1200px 100vw);
+  height: 95vh;
+  position: relative;
+}
+
+.main .box {
+  height: 95vh;
+  width: 100%;
+  opacity: 0.69;
+  position: absolute;
+  top: 0;
+  background-color: black;
+}
+
+nav {
+  max-width: 60vw;
+  justify-content: space-between;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  height: 62px;
+}
+
+nav .img {
+  color: red;
+  width: 114px;
+  position: relative;
+  z-index: 10;
+}
+
+nav button {
+  position: relative;
+  z-index: 10;
+}
+
+.hero {
+  font-family: "Martel Sans", sans-serif;
+  height: calc(100% - 62px);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  position: relative;
+  gap: 23px;
+  padding: 0 30px;
+  justify-content: center;
+}
+
+.hero>:nth-child(1) {
+  font-family: "poppins" "sans-serifs";
+  font-weight: bolder;
+  font-size: 48px;
+  text-align: center;
+}
+
+.hero>:nth-child(2) {
+  font-weight: 400;
+  font-size: 24px;
+  text-align: center;
+}
+
+.hero>:nth-child(3) {
+  font-weight: 400;
+  font-size: 20px;
+  text-align: center;
+}
+
+.sepration {
+  height: 7px;
+  background-color: rgb(73, 70, 70);
+}
+
+.btn {
+  padding: 3px 8px;
+  font-weight: 400;
+  color: white;
+  background-color: rgba(248, 243, 243, 0.026);
+  border-radius: 4px;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.btn-red {
+  background-color: red;
+  font-weight: bolder;
+  border: none;
+  color: white;
+  padding: 15px 61px;
+  font-size: 1.5rem;
+  border-radius: 4px;
+}
+
+.red-sm {
+  background-color: red;
+
+}
+
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 61px;
+  margin: 7px 18px 5px 15px;
+  gap: 16px;
+}
+
+.main input {
+  padding: 7px 101px 8px 14px;
+  color: white;
+  font-weight: 900;
+  font-size: 12px;
+  border-radius: 4px;
+  background-color: rgba(23, 23, 23, 0.7);
+  border-radius: rgba(23, 23, 23, 0.5);
+}
+
+.first {
+  display: flex;
+  justify-content: center;
+  max-width: 70vw;
+  margin: auto;
+  color: white;
+  align-items: center;
+  height: 500px;
+}
+
+.secimage {
+  position: relative;
+  
+}
+
+.secimage img {
+  width: 555px;
+  top: 10px;
+  position: relative;
+  z-index: 10;
+}
+
+.secimage video {
+  position: absolute;
+  top: 66px;
+  right: 92px;
+  width: 375px;
+  height: 283px;
+  
+}
+
+section.first>div {
+  display: flex;
+  flex-direction: column;
+}
+
+section.first>div :nth-child(1) {
+  font-size: 48px;
+  font-weight: bolder;
+}
+
+section.first>div :nth-child(2) {
+  font-size: 24px;
+  font-weight: bolder;
+}
+ section.third .secimage video{
+  position: absolute;
+  top: 56px;
+  right: 119px;
+  width: 317px;
+  height: 210px;
+ }
+ .faq h2{
+  text-align: center;
+  font-weight: bolder;
+  font-size: 48px;
+ }
+ .faq{
+  background-color: black;
+  color: white;
+  padding: 34px;
+ 
+ }
+ .faqbox{
+  display: flex;
+  font-size: 24px;
+  background-color:#2d2d2d;
+  padding: 24px;
+  max-width: 60vw;
+  margin: 34px auto;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 1s ease-out;
+ }
+ .faqbox:hover{
+  background-color: #414141;
+ }
+ footer{
+  color: white;
+  max-width: 60vw;
+  margin: auto;
+  padding: 34px;
+ }
+ .footer{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  color: white;
+
+ }
+ .footer-item{
+   display: flex;
+   flex-direction: column;
+   gap: 23px;
+
+ }
+ .footer-item a{
+    font-size: 19px;
+    color: white;
+ }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <nav>
+            <span><img height="40px" src="assets/IMG/logo.svg" alt=""></span>
+            <div class="">
+                <button class="btn">English</button>
+                <button class="btn red-sm">Sign IN</button>
+            </div>
+        </nav>
+        <div class="box">
+        </div>
+        <div class="hero">
+            <span>
+                Unlimited movies, TV shows and more
+            </span>
+            <span>
+                Watch anywhere. Cancel anytime.
+            </span>
+            <span>
+                Ready to watch? Enter your email to create or restart your membership.
+            </span>
+            <div class="hero-buttons">
+                <input type="text" placeholder="Email Address">
+               <a href="/html/index.html"> <button class="btn btn-red">Get Strarted &gt;</button></a>
+            </div>
+        </div>
+        <div class="sepration"></div>
+    </div>
+    <section class="first">
+        <div>
+            <span> Enjoy on your TV </span>
+            <span> Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</span>
+        </div>
+        <div class="secimage">
+            <img src="assets/IMG/sec2image.png">
+            <video src="assets/VIDEO/v1.m4v" autoplay loop muted></video>
+
+        </div>
+
+    </section>
+    <div class="sepration"></div>
+    <section class="first second">
+        <div class="secimage">
+            <img src="assets/IMG/second section img.jpg" alt="">
+        </div>
+        <div>
+            <span> Download your shows to watch offline </span>
+            <span>Save your favourites easily and always have something to watch.</span>
+        </div>
+    </section>
+    <div class="sepration"></div>
+
+    <section class="first third">
+        <div>
+            <span> Watch everywhere </span>
+            <span> Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</span>
+        </div>
+        <div class="secimage">
+            <img src="assets/IMG/front video image.png" alt="">
+            <video src="assets/VIDEO/video-devices-in.m4v" autoplay loop muted></video>
+        </div>
+
+
+    </section>
+    <section>
+        <div class="sepration"></div>
+        <section class="first four">
+            <div class="secimage">
+                <img src="assets/IMG/fourimage.png" alt="">
+            </div>
+            <div>
+                <span>Create profiles for kids </span>
+                <span>Send children on adventures with their favourite characters in a space made just for them—free
+                    with your membership.</span>
+            </div>
+        </section>
+        <div class="sepration"></div>
+
+
+        <section class="faq">
+            <h2> Frequently Asked Questions </h2>
+            <div class="faqbox">
+                <span> What Is Netflix</span>
+                <img src="assets/IMG/plus.svg" alt="">
+            </div>
+            <div class="faqbox">
+                <span>How much does Netflix cost?</span>
+                <img src="assets/IMG/plus.svg" alt="">
+            </div>
+            <div class="faqbox">
+                <span> Where can I watch?</span>
+                <img src="assets/IMG/plus.svg" alt="">
+            </div>
+            <div class="faqbox">
+                <span>How do I cancel?</span>
+                <img src="assets/IMG/plus.svg" alt="">
+            </div>
+            <div class="faqbox">
+                <span> What can I watch on Netflix?
+                </span>
+                <img src="assets/IMG/plus.svg" alt="">
+            </div>
+            <div class="faqbox">
+                <span>Is Netflix good for kids?</span>
+                <img src="assets/IMG/plus.svg" alt="">
+            </div>
+        </section>
+        <div class="sepration"></div>
+  <footer>
+    <div class="Questions"> Questions? Call 000-800-919-1694</div>
+    <div class="footer">
+<div class="footer-item">
+    <a href="faq">FAq</a>
+    <a href="faq">FAq</a>
+    <a href="faq">FAq</a>
+    <a href="faq">FAq</a>
+</div>
+<div class="footer-item">
+    <a href="faq">FAq</a>
+    <a href="faq">FAq</a>
+    <a href="faq">FAq</a>
+    <a href="faq">FAq</a>
+</div>
+<div class="footer-item">
+    <a href="faq">FAq</a>
+    <a href="faq">FAq</a>
+    <a href="faq">FAq</a>
+    <a href="faq">FAq</a>
+</div>
+<div class="footer-item">
+    <a href="faq">FAq</a>
+    <a href="faq">FAq</a>
+    <a href="faq">FAq</a>
+    
+</div>
+</div>
+        </footer>
+</body>
+
+</html>

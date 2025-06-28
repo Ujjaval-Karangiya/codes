@@ -1,0 +1,71 @@
+{
+    "cats": {
+      "name": "cats",
+      "followers": 25000,
+      "following": 5,
+      "posts": [
+        {
+          "image": "https://plus.unsplash.com/premium_photo-1670589737304-1a0d2b6e11e9",
+          "likes": 200,
+          "comments": 17
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1592194996308-7b43878e84a6",
+          "likes": 312,
+          "comments": 24
+        }
+      ]
+    },
+    "dogs": {
+      "name": "dogs",
+      "followers": 18000,
+      "following": 8,
+      "posts": [
+        {
+          "image": "https://images.unsplash.com/photo-1558788353-f76d92427f16",
+          "likes": 410,
+          "comments": 30
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1507146426996-ef05306b995a",
+          "likes": 290,
+          "comments": 19
+        }
+      ]
+    },
+    "birds": {
+      "name": "birds",
+      "followers": 12000,
+      "following": 2,
+      "posts": [
+        {
+          "image": "https://images.unsplash.com/photo-1510070009289-b5bc34383727",
+          "likes": 150,
+          "comments": 12
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1543852786-1cf6624b9987",
+          "likes": 200,
+          "comments": 18
+        }
+      ]
+    },
+    "nature": {
+      "name": "nature",
+      "followers": 50000,
+      "following": 10,
+      "posts": [
+        {
+          "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+          "likes": 520,
+          "comments": 45
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e",
+          "likes": 480,
+          "comments": 39
+        }
+      ]
+    }
+  }
+  

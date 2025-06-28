@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriKnowledge - Comprehensive Agricultural Resource</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .crop-card, .machine-card, .fertilizer-card {
+            transition: all 0.3s ease;
+        }
+        .crop-card:hover, .machine-card:hover, .fertilizer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .see-more-content {
+            display: none;
+        }
+        .see-more-content.show {
+            display: block;
+        }
+        .arrow {
+            transition: transform 0.3s ease;
+        }
+        .arrow.rotated {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Hero Section -->
+    <header class="relative bg-green-700 text-white overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c6cf1f43-35fb-47a4-a3e1-1cf786efae8b.png" alt="Panoramic view of lush green farmland with farmers working in the distance" class="w-full h-full object-cover opacity-30">
+        </div>
+        <div class="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto text-center">
+                <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">AgriKnowledge</h1>
+                <p class="mt-6 text-xl max-w-3xl mx-auto">Your comprehensive guide to modern agriculture</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <div class="sticky top-0 z-20 bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex overflow-x-auto py-4">
+                <button onclick="changeTab('crops')" class="tab-btn flex-shrink-0 px-4 py-2 font-medium text-sm rounded-t-lg bg-green-600 text-white mr-2">Crops</button>
+                <button onclick="changeTab('machinery')" class="tab-btn flex-shrink-0 px-4 py-2 font-medium text-sm rounded-t-lg bg-gray-200 text-gray-700 hover:bg-gray-300 mr-2">Machinery</button>
+                <button onclick="changeTab('fertilizers')" class="tab-btn flex-shrink-0 px-4 py-2 font-medium text-sm rounded-t-lg bg-gray-200 text-gray-700 hover:bg-gray-300 mr-2">Fertilizers</button>
+                <button onclick="changeTab('policies')" class="tab-btn flex-shrink-0 px-4 py-2 font-medium text-sm rounded-t-lg bg-gray-200 text-gray-700 hover:bg-gray-300 mr-2">Govt. Policies</button>
+                <button onclick="changeTab('farming-info')" class="tab-btn flex-shrink-0 px-4 py-2 font-medium text-sm rounded-t-lg bg-gray-200 text-gray-700 hover:bg-gray-300">Farming Info</button>
+            </nav>
+        </div>
+    </div>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- Crops Section -->
+        <section id="crops" class="tab-content active">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">Major Agricultural Crops</h2>
+                <div class="relative">
+                    <input type="text" placeholder="Search crops..." class="search-crops pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" oninput="filterCrops()">
+                    <div class="absolute left-3 top-2.5">
+                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Initial 12 crops -->
+                <div class="crop-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+                    <div class="h-48">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/807691d4-1897-434d-a016-4d62f758c73f.png" alt="Field of golden wheat stalks swaying in the wind with blue sky background" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-xl mb-2">Wheat</h3>
+                        <p class="text-gray-600 mb-2"><span class="font-semibold">Growth:</span> Cool season crop, sow in Oct-Nov, harvest in April-May</p>
+                        <p class="text-gray-600 mb-3"><span class="font-semibold">Major Regions:</span> Punjab, Haryana, Uttar Pradesh</p>
+                        <button onclick="toggleDetails('wheat-details')" class="text-green-600 font-medium flex items-center">
+                            More Info <span class="arrow ml-1">▼</span>
+                        </button>
+                        <div id="wheat-details" class="see-more-content mt-2 text-gray-700">
+                            <p><span class="font-semibold">Optimal Soil:</span> Well-drained loamy soil with pH 5.5-6.5</p>
+                            <p><span class="font-semibold">Key Fertilizers:</span> NPK (120:60:40 kg/ha), Zinc (5 kg/ha)</p>
+                            <p><span class="font-semibold">Water Needs:</span> Requires 4-6 irrigations, critical at crown root initiation stage</p>
+                            <p><span class="font-semibold">Common Varieties:</span> HD 2967, PBW 343, DBW 17</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="crop-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+                    <div class="h-48">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/bbf05939-59d5-4bca-be71-163cb37cdbe6.png" alt="Rice paddies flooded with water showing young green shoots in neat rows" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-xl mb-2">Rice</h3>
+                        <p class="text-gray-600 mb-2"><span class="font-semibold">Growth:</span> Kharif crop, requires standing water, grown in monsoon</p>
+                        <p class="text-gray-600 mb-3"><span class="font-semibold">Major Regions:</span> West Bengal, Uttar Pradesh, Andhra Pradesh</p>
+                        <button onclick="toggleDetails('rice-details')" class="text-green-600 font-medium flex items-center">
+                            More Info <span class="arrow ml-1">▼</span>
+                        </button>
+                        <div id="rice-details" class="see-more-content mt-2 text-gray-700">
+                            <p><span class="font-semibold">Optimal Soil:</span> Clayey loam soils that retain water</p>
+                            <p><span class="font-semibold">Key Fertilizers:</span> Urea (100-150 kg/ha), DAP (40-50 kg/ha)</p>
+                            <p><span class="font-semibold">Water Needs:</span> Requires continuous water logging (5-10 cm)</p>
+                            <p><span class="font-semibold">Common Varieties:</span> Pusa Basmati 1509, IR 64, Swarna</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional crops (10 more) with similar structure -->
+                <div class="crop-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+                    <!-- Corn/Maize -->
+                </div>
+                <div class="crop-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+                    <!-- Sugarcane -->
+                </div>
+                <div class="crop-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+                    <!-- Cotton -->
+                </div>
+                <div class="crop-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+                    <!-- Soybean -->
+                </div>
+                <div class="crop-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+                    <!-- Potato -->
+                </div>
+                <div class="crop-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+                    <!-- Mustard -->
+                </div>
+                <div class="crop-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+                    <!-- Peanut -->
+                </div>
+                <div class="crop-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+                    <!-- Tea -->
+                </div>
+                <div class="crop-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+                    <!-- Coffee -->
+                </div>
+                <div class="crop-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+                    <!-- Millets -->
+                </div>
+            </div>
+
+            <!-- See More Button -->
+            <div class="text-center mt-8">
+                <button id="see-more-crops" onclick="loadMoreCrops()" class="bg-green-600 text-white py-2 px-6 rounded-lg hover:bg-green-700 transition duration-300">
+                    See More Crops (+14)
+                </button>
+            </div>
+
+            <!-- Additional Crops (Hidden Initially) -->
+            <div id="more-crops" class="see-more-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+                <!-- Additional 14 crops -->
+                <!-- Barley, Chickpea, Lentil, Sunflower, Coconut, Rubber, Spices, Vegetables, Fruits, etc. -->
+            </div>
+        </section>
+
+        <!-- Machinery Section -->
+        <section id="machinery" class="tab-content">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Agricultural Machinery</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Tractor -->
+                <div class="machine-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+                    <div class="h-48">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/df045e35-f44f-412e-b33f-ed4fbb56a85e.png" alt="Modern red tractor plowing a field with dark soil" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-xl mb-2">Tractor</h3>
+                        <p class="text-gray-600 mb-3">Essential for plowing, hauling and operating implements</p>
+                        <button onclick="toggleDetails('tractor-details')" class="text-green-600 font-medium flex items-center">
+                            Details <span class="arrow ml-1">▼</span>
+                        </button>
+                        <div id="tractor-details" class="see-more-content mt-2 text-gray-700">
+                            <p><span class="font-semibold">Types:</span> Utility, Row-crop, Orchard, Compact</p>
+                            <p><span class="font-semibold">Power:</span> 20-120 HP</p>
+                            <p><span class="font-semibold">Cost:</span> ₹3 lakh - ₹15 lakh</p>
+                            <p><span class="font-semibold">Top Brands:</span> Mahindra, TAFE, Sonalika, John Deere</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Combine Harvester -->
+                <div class="machine-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+                    <div class="h-48">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c4aa9cdc-1e2d-4b8f-ad27-43845705bc8a.png" alt="Large combine harvester cutting wheat stalks in a golden field" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-xl mb-2">Combine Harvester</h3>
+                        <p class="text-gray-600 mb-3">Performs harvesting, threshing and cleaning in one operation</p>
+                        <button onclick="toggleDetails('harvester-details')" class="text-green-600 font-medium flex items-center">
+                            Details <span class="arrow ml-1">▼</span>
+                        </button>
+                        <div id="harvester-details" class="see-more-content mt-2 text-gray-700">
+                            <p><span class="font-semibold">Types:</span> Self-propelled, Pull-type</p>
+                            <p><span class="font-semibold">Capacity:</span> 1-5 acres/hour</p>
+                            <p><span class="font-semibold">Cost:</span> ₹15 lakh - ₹40 lakh</p>
+                            <p><span class="font-semibold">Top Brands:</span> Dasmesh, Preet, John Deere</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional machinery cards (13 more) -->
+                <!-- Power Tiller, Rotavator, Seed Drill, Cultivator, Plough, Harrow, Sprayer, Baler, etc. -->
+            </div>
+        </section>
+
+        <!-- Fertilizers Section -->
+        <section id="fertilizers" class="tab-content">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Fertilizers & Soil Amendments</h2>
+            
+            <div class="grid grid-cols-1 gap-6">
+                <!-- Urea -->
+                <div class="fertilizer-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+                    <div class="p-4">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-bold text-xl mb-2">Urea (46-0-0)</h3>
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Nitrogenous</span>
+                        </div>
+                        <p class="text-gray-600 mb-3">Most widely used nitrogen fertilizer in agricultural soils</p>
+                        <button onclick="toggleDetails('urea-details')" class="text-green-600 font-medium flex items-center">
+                            Full Specifications <span class="arrow ml-1">▼</span>
+                        </button>
+                        <div id="urea-details" class="see-more-content mt-2 text-gray-700">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div>
+                                    <p class="font-semibold">Composition:</p>
+                                    <p>46% Nitrogen</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Application Rate:</p>
+                                    <p>50-150 kg/acre depending on crop</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Best For:</p>
+                                    <p>Rice, Wheat, Maize, Cotton</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Soil Types:</p>
+                                    <p>All except waterlogged conditions</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Application Method:</p>
+                                    <p>Broadcast and incorporate before planting</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Precautions:</p>
+                                    <p>Avoid direct contact with seeds</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional fertilizer cards (37 more) -->
+                <!-- DAP, MOP, NPK mixtures, Organic fertilizers, Micronutrients, etc. -->
+            </div>
+        </section>
+
+        <!-- Government Policies Section -->
+        <section id="policies" class="tab-content">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Government Agricultural Policies</h2>
+            
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
+                <h3 class="text-xl font-bold text-blue-800 mb-4">National Agriculture Policy</h3>
+                <p class="text-gray-700 mb-4">Comprehensive framework for agricultural development with focus on sustainability, technology, and farmer welfare.</p>
+                <button onclick="toggleDetails('national-policy-details')" class="text-blue-600 font-medium flex items-center">
+                    Read Full Policy <span class="arrow ml-1">▼</span>
+                </button>
+                <div id="national-policy-details" class="see-more-content mt-2 text-gray-700">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold text-lg mb-2">Key Objectives</h4>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>4% annual growth in agriculture sector</li>
+                                <li>Efficient use of resources (water, soil, nutrients)</li>
+                                <li>Promotion of organic farming practices</li>
+                                <li>Development of agricultural infrastructure</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg mb-2">Implementation Strategies</h4>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Soil Health Card Scheme</li>
+                                <li>Neem Coated Urea</li>
+                                <li>Paramparagat Krishi Vikas Yojana</li>
+                                <li>E-NAM electronic trading platform</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional policy cards -->
+            <!-- PM-KISAN, PMFBY, KCC, etc. -->
+        </section>
+
+        <!-- Farming Information Section -->
+        <section id="farming-info" class="tab-content">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Farming Techniques & Practices</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+                    <div class="h-48">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/eb882c33-ef4f-4358-9085-91cccb39c7c6.png" alt="Comparison of traditional and modern irrigation methods showing drip irrigation versus flood irrigation" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-xl mb-2">Water Conservation Techniques</h3>
+                        <p class="text-gray-600 mb-3">Modern irrigation methods can reduce water usage by up to 60% compared to traditional methods</p>
+                        <button onclick="toggleDetails('water-tech-details')" class="text-green-600 font-medium flex items-center">
+                            Learn Methods <span class="arrow ml-1">▼</span>
+                        </button>
+                        <div id="water-tech-details" class="see-more-content mt-2 text-gray-700">
+                            <h4 class="font-semibold mb-2">Effective Methods:</h4>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Drip Irrigation</li>
+                                <li>Sprinkler Systems</li>
+                                <li>Rainwater Harvesting</li>
+                                <li>Laser Land Leveling</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+                    <div class="h-48">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ee8853bf-648a-49ea-9ed9-110f4612697c.png" alt="Variety of organic farming inputs showing compost, neem cake, and vermicompost" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-xl mb-2">Organic Farming Practices</h3>
+                        <p class="text-gray-600 mb-3">Sustainable farming methods that improve soil health and produce chemical-free crops</p>
+                        <button onclick="toggleDetails('organic-details')" class="text-green-600 font-medium flex items-center">
+                            Learn Techniques <span class="arrow ml-1">▼</span>
+                        </button>
+                        <div id="organic-details" class="see-more-content mt-2 text-gray-700">
+                            <h4 class="font-semibold mb-2">Key Components:</h4>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Crop Rotation</li>
+                                <li>Green Manuring</li>
+                                <li>Vermicomposting</li>
+                                <li>Natural Pest Control</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">AgriKnowledge</h3>
+                    <p>Your comprehensive agricultural resource for crops, machinery, fertilizers and government policies.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-green-400 transition" onclick="changeTab('crops')">Crop Information</a></li>
+                        <li><a href="#" class="hover:text-green-400 transition" onclick="changeTab('machinery')">Machinery Guide</a></li>
+                        <li><a href="#" class="hover:text-green-400 transition" onclick="changeTab('fertilizers')">Fertilizer Database</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact</h3>
+                    <p>Email: info@agriknowledge.com</p>
+                    <p>Phone: +91 98765 43210</p>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+                <p>© 2023 AgriKnowledge. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab navigation
+        function changeTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+
+            // Update tab button styling
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                if (btn.textContent.toLowerCase().includes(tabName)) {
+                    btn.classList.remove('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+                    btn.classList.add('bg-green-600', 'text-white');
+                } else {
+                    btn.classList.remove('bg-green-600', 'text-white');
+                    btn.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+                }
+            });
+        }
+
+        // Show/hide detailed content
+        function toggleDetails(id) {
+            const element = document.getElementById(id);
+            const arrow = document.querySelector(`button[onclick="toggleDetails('${id}')"] .arrow`);
+            
+            element.classList.toggle('show');
+            arrow.classList.toggle('rotated');
+        }
+
+        // Load more crops
+        function loadMoreCrops() {
+            const btn = document.getElementById('see-more-crops');
+            const moreCrops = document.getElementById('more-crops');
+            
+            btn.style.display = 'none';
+            moreCrops.classList.add('show');
+        }
+
+        // Filter crops based on search input
+        function filterCrops() {
+            const searchTerm = document.querySelector('.search-crops').value.toLowerCase();
+            const cards = document.querySelectorAll('.crop-card');
+            
+            cards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                if (title.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Initialize with first tab active
+        document.addEventListener('DOMContentLoaded', function() {
+            changeTab('crops');
+        });
+    </script>
+</body>
+</html>
+
